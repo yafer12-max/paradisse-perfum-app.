@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import "tailwindcss";
+
+:root { font-family: "Inter", sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
+.font-display { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.035em; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+button, input, select { font: inherit; }
+::selection { background: #D4AF37; color: #17150f; }
+
+@keyframes nova-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.nova-marquee { display: flex; width: max-content; animation: nova-marquee 28s linear infinite; }
+.nova-marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .nova-marquee { animation: none; justify-content: center; width: 100%; } .nova-marquee span[aria-hidden="true"] { display: none; } }
+
+.nova-ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: transparent; }
+.nova-ambient-dark { background: #050505; }
+.nova-ambient-light { opacity: .36; }
+.nova-blob { position: absolute; display: block; width: min(64vw, 48rem); aspect-ratio: 1; border-radius: 9999px; filter: blur(110px); opacity: .16; animation: nova-drift 24s ease-in-out infinite alternate; }
+.nova-blob-gold { top: -24rem; left: -18rem; background: var(--nova-accent, #D4AF37); }
+.nova-blob-violet { top: 35%; right: -28rem; background: color-mix(in srgb, var(--nova-accent, #542b76) 55%, #542b76); opacity: .23; animation-delay: -8s; }
+.nova-blob-amber { bottom: -38rem; left: 24%; background: #9b6d1b; opacity: .12; animation-delay: -14s; }
+@keyframes nova-drift { from { transform: translate3d(-2%, 0, 0) scale(.92); } to { transform: translate3d(5%, 8%, 0) scale(1.08); } }
+.nova-mist { position: absolute; inset: -10% 0; will-change: transform; transition: transform .2s ease-out; }
+.nova-particle { position: absolute; display: block; border-radius: 9999px; background: var(--nova-accent, #D4AF37); opacity: .27; box-shadow: 0 0 12px color-mix(in srgb, var(--nova-accent, #D4AF37) 85%, transparent); animation: nova-float var(--particle-duration, 20s) ease-in-out infinite alternate; }
+.nova-particle:nth-child(3n) { --particle-duration: 23s; opacity: .15; background: #f8e6a0; }
+.nova-particle:nth-child(3n + 1) { --particle-duration: 17s; }
+.nova-particle:nth-child(3n + 2) { --particle-duration: 27s; opacity: .2; }
+@keyframes nova-float { from { translate: -12px -14px; } to { translate: var(--drift, 30px) 22px; } }
+.nova-ambient-light .nova-particle { opacity: .13; }
+.nova-detail-card { transition: border-color .45s ease, box-shadow .45s ease; }
+.nova-typing-dots { display: inline-flex; gap: 4px; vertical-align: middle; }
+.nova-typing-dots i { width: 5px; height: 5px; border-radius: 50%; background: #D4AF37; animation: nova-typing .8s infinite alternate; }
+.nova-typing-dots i:nth-child(2) { animation-delay: .18s; }
+.nova-typing-dots i:nth-child(3) { animation-delay: .36s; }
+@keyframes nova-typing { from { opacity: .3; transform: translateY(0); } to { opacity: 1; transform: translateY(-3px); } }
+.nova-cta { position: relative; isolation: isolate; overflow: hidden; transform: translateZ(0); transition: transform .18s ease, filter .18s ease; }
+.nova-cta:active { transform: scale(.97); filter: brightness(1.12); }
+.nova-cta::after { content: ""; position: absolute; z-index: -1; left: 50%; top: 50%; width: 12px; aspect-ratio: 1; border-radius: 9999px; background: #fff9d6a0; opacity: 0; transform: translate(-50%, -50%) scale(0); pointer-events: none; }
+.nova-cta:active::after { animation: nova-ripple .55s ease-out; }
+@keyframes nova-ripple { 15% { opacity: .42; } 100% { opacity: 0; transform: translate(-50%, -50%) scale(16); } }
+.nova-product { position: relative; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.2,.75,.25,1), filter .45s ease; }
+.nova-product::before { content: ""; position: absolute; z-index: -1; inset: -1px; border-radius: 1.15rem; opacity: 0; pointer-events: none; background: radial-gradient(240px circle at var(--spot-x, 50%) var(--spot-y, 50%), #D4AF3740, transparent 72%), linear-gradient(135deg, #D4AF3720, transparent 38%, #9b6d1b20); filter: blur(18px); transition: opacity .35s ease; }
+.nova-product-dark:hover { transform: perspective(900px) rotateX(1.5deg) rotateY(-1.5deg) translateY(-4px); filter: drop-shadow(0 16px 26px #D4AF3715); }
+.nova-product:hover::before { opacity: 1; }
+.nova-swipe-added { outline: 2px solid #16a34a; box-shadow: 0 0 28px #16a34a70; animation: nova-added-flash .85s ease-out; }
+@keyframes nova-added-flash { 0% { background-color: #16a34a50; } 100% { background-color: transparent; } }
+.nova-island { position: fixed; z-index: 60; top: .5rem; left: 50%; display: flex; max-width: min(92vw, 24rem); align-items: center; gap: .5rem; overflow: hidden; border: 1px solid #ffffff18; border-radius: 9999px; background: #090909; padding: .45rem .85rem; color: #f8f7f3; box-shadow: 0 8px 28px #0006; white-space: nowrap; transform: translateX(-50%); transition: width .55s cubic-bezier(.22,1.4,.36,1), padding .35s ease, box-shadow .35s ease; }
+.nova-island-compact { width: 10rem; justify-content: center; }
+.nova-island-expanded { width: min(92vw, 24rem); border-color: #D4AF3766; box-shadow: 0 0 22px #D4AF3730, 0 8px 28px #0008; }
+.nova-island-message { overflow: hidden; text-overflow: ellipsis; font-size: 10px; }
+.nova-scanning { overflow: hidden; animation: nova-scan-border .8s ease-in-out infinite alternate; }
+.nova-scanning::after { content: ""; position: absolute; left: 0; right: 0; top: -20%; height: 2px; background: #f8e6a0; box-shadow: 0 0 16px 4px #D4AF37; animation: nova-scan-line 1.3s linear infinite; }
+.nova-scan-ring { width: 1.25rem; height: 1.25rem; flex: none; border: 2px solid #D4AF3750; border-top-color: #D4AF37; border-radius: 50%; animation: nova-spin .75s linear infinite; }
+@keyframes nova-scan-border { to { box-shadow: 0 0 22px #D4AF3770; border-color: #f8e6a0; } }
+@keyframes nova-scan-line { to { transform: translateY(160px); } }
+@keyframes nova-spin { to { transform: rotate(360deg); } }
+.nova-ar-bottle { filter: drop-shadow(0 14px 24px #D4AF3760); transition: transform .1s ease-out; }
+@media (max-width: 767px) { .nova-island { top: .35rem; padding: .35rem .65rem; } .nova-island-compact { width: 7.5rem; } .nova-island-message { font-size: 9px; } }
+@media (prefers-reduced-motion: reduce) { .nova-blob, .nova-product { animation: none; transition: none; } .nova-product-dark:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .nova-particle, .nova-typing-dots i, .nova-scanning, .nova-scanning::after, .nova-scan-ring { animation: none; } .nova-mist { transition: none; } .nova-cta, .nova-cta::after, .nova-cta:active::after { transition: none; animation: none; } }
+
+.nova-thanks-page { background: radial-gradient(ellipse at 50% 45%, #201b10 0%, #090909 42%, #030303 100%); }
+.nova-thanks-canvas, .nova-crystal-fallback { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+.nova-thanks-glow { position: fixed; z-index: 0; left: 50%; top: 42%; width: min(70vw, 34rem); aspect-ratio: 1; border-radius: 50%; background: #d4af3710; filter: blur(90px); transform: translate(-50%, -50%); pointer-events: none; }
+.nova-crystal-fallback i { position: absolute; top: -8%; width: 5px; height: 9px; background: #efd27a; clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%); opacity: .75; animation: nova-crystal-fall linear infinite; }
+@keyframes nova-crystal-fall { to { transform: translate3d(25px,110vh,0) rotate(430deg); opacity: .08; } }
+.nova-admin-mode { --nova-admin-green: #a5ff00; background: #000 !important; color: #fff !important; color-scheme: dark; }
+.nova-admin-mode [class*="text-[#D4AF37]"], .nova-admin-mode [class*="text-[#f1d887]"], .nova-admin-mode [class*="text-amber-"] { color: var(--nova-admin-green) !important; }
+.nova-admin-mode [class*="border-[#D4AF37]"], .nova-admin-mode [class*="border-[#d4af37]"], .nova-admin-mode [class*="border-amber-"] { border-color: #a5ff0070 !important; }
+.nova-admin-mode [class*="bg-[#D4AF37]"] { background-color: var(--nova-admin-green) !important; color: #000 !important; }
+.nova-admin-mode [class*="bg-[#D4AF37]/"] { background-color: #a5ff001a !important; }
+.nova-admin-mode [class*="bg-white/[0.055]"], .nova-admin-mode [class*="bg-white/[0.06]"], .nova-admin-mode [class*="bg-white/[0.04]"] { background-color: #080b05 !important; }
+.nova-admin-mode input, .nova-admin-mode select, .nova-admin-mode textarea { border-color: #a5ff0070 !important; }
+.nova-admin-mode .nova-cta { background-image: linear-gradient(100deg, #a5ff00, #dcff9b, #78c900) !important; color: #000 !important; }
+.nova-admin-mode .nova-blob { background: #a5ff00 !important; opacity: .11 !important; }
+.nova-admin-mode :focus-visible { outline: 2px solid var(--nova-admin-green); outline-offset: 3px; }
+.nova-club-card { --club-x: 0; --club-y: 0; position: relative; transform: perspective(900px) rotateY(calc(var(--club-x) * 12deg)) rotateX(calc(var(--club-y) * -12deg)); background: linear-gradient(125deg, #17161f 4%, #44301c 40%, #101722 75%, #17120f 100%); box-shadow: 0 24px 65px #05050575, inset 0 1px #ffffff50; transition: transform .22s ease, box-shadow .3s ease; }
+.nova-club-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 22%, #ffffff12 44%, #fff5 49%, #ffffff0b 54%, transparent 72%); transform: translateX(-120%); animation: nova-club-glint 6s ease-in-out infinite; }
+@keyframes nova-club-glint { 0%, 30% { transform: translateX(-120%); } 58%, 100% { transform: translateX(120%); } }
+@media (prefers-reduced-motion: reduce) { .nova-club-card, .nova-club-card::after { animation: none; transition: none; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .nova-crystal-fallback i { animation: none; } }

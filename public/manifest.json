@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "NovaScents - Perfumería",
+  "short_name": "NovaScents",
+  "description": "Perfumería en Popayán. Descubre tu próxima esencia.",
+  "lang": "es-CO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#11110f",
+  "theme_color": "#11110f",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    { "src": "/icons/novascents-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/novascents-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/novascents-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
