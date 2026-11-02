@@ -1,20 +1,28 @@
 // Todo lo que cambia entre una tienda y otra vive aquí.
 export const storeConfig = {
-  nombreTienda: "NovaScents",
-  eslogan: "Tu guía de aromas en Popayán",
-  ciudad: "Popayán",
-  whatsapp: "573053351058", // Pones tu número de WhatsApp
+  nombreTienda: "Paradisse Perfum",
+  eslogan: "Fragancias exclusivas por mayor y detal",
+  ciudad: "Cali",
+  whatsapp: "573110000000",
 
-  // Módulos activos para Popayán
-  habilitarPlanSepare: true,   // Mantienes el Plan Separe
-  habilitarCombos: true,        // Mantienes el descuento de $5.000
-  avisoUltimaUnidad: true,     // Basado en stock real
-  habilitarMayorista: false,
+  // Módulos activos para cliente B2B
+  habilitarPlanSepare: false,
+  habilitarCombos: false,
+  habilitarMayorista: true,
+  minimoMayorista: 3,
 
-  titularLegal: "Yafert Norvey Piedrahita Muñoz",
-  correoContacto: "contacto@novascents.com",
-  direccionFisica: "Popayán, Cauca, Colombia",
+  tiempoEnvioLocal: "Mismo día en Cali",
+  tiempoEnvioNacional: "2 días hábiles a nivel nacional",
 
-  sheetUrl: "", // Vacío para usar productos.json o tu enlace de Google Sheets
-  envioGratisDesde: 150000
+  // Datos Legales (Ambas variantes para compatibilidad)
+  titular: "Paradisse Perfum S.A.S.",
+  titularLegal: "Paradisse Perfum S.A.S.",
+  documentoIdentidad: "900000000-1",
+  documento: "900000000-1",
+  correoContacto: "ventas@paradisse.com",
+  correo: "ventas@paradisse.com",
+  direccionFisica: "Cali, Valle del Cauca, Colombia",
+  direccion: "Cali, Valle del Cauca, Colombia",
+
+  sheetUrl: ""
 };
