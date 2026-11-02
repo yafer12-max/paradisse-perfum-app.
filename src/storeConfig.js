@@ -5,7 +5,7 @@ export const storeConfig = {
   ciudad: "Cali",
   whatsapp: "573110000000",
 
-  // Módulos B2B
+  // Módulos para cliente B2B en Cali
   habilitarPlanSepare: false,
   habilitarCombos: false,
   habilitarMayorista: true,
@@ -14,7 +14,6 @@ export const storeConfig = {
   tiempoEnvioLocal: "Mismo día en Cali",
   tiempoEnvioNacional: "2 días hábiles a nivel nacional",
 
-  // Objeto legal que requiere Legal.jsx
   legal: {
     titular: "Paradisse Perfum S.A.S.",
     titularLegal: "Paradisse Perfum S.A.S.",
@@ -26,7 +25,6 @@ export const storeConfig = {
     direccionFisica: "Cali, Valle del Cauca, Colombia",
   },
 
-  // Propiedades sueltas por seguridad
   titular: "Paradisse Perfum S.A.S.",
   documento: "900000000-1",
   correo: "ventas@paradisse.com",
