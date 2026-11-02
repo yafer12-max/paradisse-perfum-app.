@@ -25,4 +25,4 @@ export const storeConfig = {
   direccion: "Cali, Valle del Cauca, Colombia",
 
   sheetUrl: ""
-};
+}; export default storeConfig;
